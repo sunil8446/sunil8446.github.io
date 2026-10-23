@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sunil-data-systems.deeppike11.chatgpt.site/sitemap.xml
