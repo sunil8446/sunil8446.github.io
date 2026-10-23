@@ -7,7 +7,7 @@ const projects = {
     card: "Migrated 40M rows of legacy reporting to Snowflake at Audax Group, rebuilding report logic in reusable SQL and proving parity with 31 reconciliation checks before stakeholders switched over.",
     summary: "On Audax Group's Business Solutions team, I rebuilt assigned SQL Server reporting logic as reusable Snowflake CTEs and stored procedures. I wrote 31 reconciliation checks across row counts, totals, and business rules, and traced 200 vendor-invoice mismatches back to the source before cutover. I also right-sized Snowflake warehouses and clustered large invoice fact tables by date, reducing compute use by 22%.",
     proof: "31 checks compared SQL Server and Snowflake outputs. Each mismatch was traced to source before cutover; 22 Airflow DAGs then sustained 99% run success during the six-month co-op.",
-    technologies: ["SQL Server", "Snowflake", "SQL", "Airflow", "Python", "Alteryx", "Tableau"],
+    technologies: ["SQL Server", "Snowflake", "SQL", "dbt", "Airflow", "Python", "Alteryx", "Excel", "Tableau", "Power BI"],
     nodes: ["SQL Server reports", "Snowflake rebuild", "31 parity checks", "Trusted cutover"],
     flow: "Assigned SQL Server report logic was rebuilt in Snowflake and reconciled against legacy outputs before the broader team completed cutover.",
     note: "The diagram and sample query are synthetic. No client data is shown.",
@@ -74,7 +74,7 @@ const projects = {
     kicker: "Work case study · Data · Software · Confidential: no client details",
     tags: ["Data", "Software", "Work case study"],
     card: "Refactored assigned components of a client reporting ETL at Avanade (Accenture), replacing full refreshes with incremental dbt models on BigQuery and cutting the scheduled refresh from 90 minutes to 35.",
-    summary: "At Avanade, I worked on refactoring assigned pipeline components by replacing full refreshes with incremental dbt models on BigQuery, orchestrated in Airflow. Comparing scheduled end-to-end runs before and after the change, refresh time fell from 90 minutes to 35. The work was part of three years of client delivery spanning integrations, data pipelines, code review, and mentoring.",
+    summary: "At Avanade, I worked on refactoring assigned pipeline components by replacing full refreshes with incremental dbt models on BigQuery, orchestrated in Airflow. Comparing scheduled end-to-end runs before and after the change, refresh time fell from 90 minutes to 35. The work was part of two years of client delivery spanning integrations, data pipelines, code review, and mentoring.",
     proof: "Scheduled end-to-end refresh duration fell from 90 to 35 minutes. Automated tests and staged CI/CD deployments also contributed to a 60% reduction in the delivery team's release rollbacks.",
     technologies: ["dbt", "BigQuery", "Airflow", "SQL", "CI/CD"],
     nodes: ["Client systems", "Refactored ETL", "Reporting tables", "90 → 35 min"],
@@ -87,7 +87,7 @@ const projects = {
 const tracks = {
   all: {
     label: "All tracks",
-    subheadline: "Three years shipping client software at Avanade (Accenture), then data and software engineering at Audax Group and Northeastern. Pipelines, APIs, streaming, and AI systems, each with the tests that prove it.",
+    subheadline: "Two years shipping client software at Avanade (Accenture), then data and software engineering at Audax Group and Northeastern. Pipelines, APIs, streaming, and AI systems, each with the tests that prove it.",
     metrics: [
       ["40M rows", "migrated to Snowflake", "Audax Group, verified with 31 reconciliation checks"],
       ["90 → 35 min", "client ETL refresh", "Avanade (Accenture)"],
@@ -107,7 +107,7 @@ const tracks = {
   software: {
     label: "Software",
     subheadline: "Backend services and APIs in Python, Go, and Java, tested against real databases and shipped through CI/CD.",
-    metrics: [["40+", "integration tests in CI", "Cloud marketplace API"], ["3 years", "shipping client software", "Accenture"], ["25K users", "enterprise portal", "Built and supported"]],
+    metrics: [["40+", "integration tests in CI", "Cloud marketplace API"], ["2 years", "shipping client software", "Avanade (Accenture)"], ["25K users", "enterprise portal", "Built and supported"]],
     order: ["cloudApi", "kafka", "orbit", "avanade", "audax", "food"], featured: "cloudApi", group: "software", note: "Software evidence first: APIs, streaming services, agent systems, and client delivery."
   },
   cloud: {
