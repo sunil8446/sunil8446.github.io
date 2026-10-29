@@ -74,7 +74,7 @@ const projects = {
     kicker: "Work case study · Data · Software · Confidential: no client details",
     tags: ["Data", "Software", "Work case study"],
     card: "Refactored assigned components of a client reporting ETL at Avanade (Accenture), replacing full refreshes with incremental dbt models on BigQuery and cutting the scheduled refresh from 90 minutes to 35.",
-    summary: "At Avanade, I worked on refactoring assigned pipeline components by replacing full refreshes with incremental dbt models on BigQuery, orchestrated in Airflow. Comparing scheduled end-to-end runs before and after the change, refresh time fell from 90 minutes to 35. The work was part of two years of client delivery spanning integrations, data pipelines, code review, and mentoring.",
+    summary: "At Avanade, I worked on refactoring assigned pipeline components by replacing full refreshes with incremental dbt models on BigQuery, orchestrated in Airflow. Comparing scheduled end-to-end runs before and after the change, refresh time fell from 90 minutes to 35. The work was part of three years of client delivery spanning integrations, data pipelines, code review, and mentoring.",
     proof: "Scheduled end-to-end refresh duration fell from 90 to 35 minutes. Automated tests and staged CI/CD deployments also contributed to a 60% reduction in the delivery team's release rollbacks.",
     technologies: ["dbt", "BigQuery", "Airflow", "SQL", "CI/CD"],
     nodes: ["Client systems", "Refactored ETL", "Reporting tables", "90 → 35 min"],
@@ -87,7 +87,7 @@ const projects = {
 const tracks = {
   all: {
     label: "All tracks",
-    subheadline: "Two years shipping client software at Avanade (Accenture), then data and software engineering at Audax Group and Northeastern. Pipelines, APIs, streaming, and AI systems, each with the tests that prove it.",
+    subheadline: "Three years shipping client software at Avanade (Accenture), then data and software engineering at Audax Group and Northeastern. Pipelines, APIs, streaming, and AI systems, each with the tests that prove it.",
     metrics: [
       ["40M rows", "migrated to Snowflake", "Audax Group, verified with 31 reconciliation checks"],
       ["90 → 35 min", "client ETL refresh", "Avanade (Accenture)"],
@@ -107,7 +107,7 @@ const tracks = {
   software: {
     label: "Software",
     subheadline: "Backend services and APIs in Python, Go, and Java, tested against real databases and shipped through CI/CD.",
-    metrics: [["40+", "integration tests in CI", "Cloud marketplace API"], ["2 years", "shipping client software", "Avanade (Accenture)"], ["25K users", "enterprise portal", "Built and supported"]],
+    metrics: [["40+", "integration tests in CI", "Cloud marketplace API"], ["3 years", "shipping client software", "Avanade (Accenture)"], ["25K users", "enterprise portal", "Built and supported"]],
     order: ["cloudApi", "kafka", "orbit", "avanade", "audax", "food"], featured: "cloudApi", group: "software", note: "Software evidence first: APIs, streaming services, agent systems, and client delivery."
   },
   cloud: {
@@ -218,6 +218,23 @@ const closeNavigation = () => { navToggle.setAttribute("aria-expanded", "false")
 navToggle.addEventListener("click", () => { const open = navToggle.getAttribute("aria-expanded") === "true"; navToggle.setAttribute("aria-expanded", String(!open)); siteNav.classList.toggle("is-open", !open); });
 siteNav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeNavigation));
 document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeNavigation(); });
+
+const systemScene = document.getElementById("system-scene");
+const sceneRig = systemScene?.querySelector(".scene-rig");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+if (systemScene && sceneRig && !reduceMotion.matches) {
+  const setSceneAngle = (x, y) => {
+    sceneRig.style.setProperty("--scene-x", `${x.toFixed(2)}deg`);
+    sceneRig.style.setProperty("--scene-y", `${y.toFixed(2)}deg`);
+  };
+  systemScene.addEventListener("pointermove", (event) => {
+    const bounds = systemScene.getBoundingClientRect();
+    const x = ((event.clientY - bounds.top) / bounds.height - .5) * -13;
+    const y = ((event.clientX - bounds.left) / bounds.width - .5) * 18;
+    setSceneAngle(x, y);
+  });
+  systemScene.addEventListener("pointerleave", () => setSceneAngle(-5, 7));
+}
 
 document.getElementById("year").textContent = new Date().getFullYear();
 applyLens(activeLens);
